@@ -1,0 +1,91 @@
+[
+    {
+        "name": "semantic/ui",
+        "version": "2.1.8",
+        "version_normalized": "2.1.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Semantic-Org/Semantic-UI.git",
+            "reference": "04a3c48a0dd3bd9b440b59036004409239a6db16"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Semantic-Org/Semantic-UI/zipball/04a3c48a0dd3bd9b440b59036004409239a6db16",
+            "reference": "04a3c48a0dd3bd9b440b59036004409239a6db16",
+            "shasum": ""
+        },
+        "time": "2016-01-08 04:45:47",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jack Lukic",
+                "email": "jacklukic@gmail.com",
+                "homepage": "http://www.jacklukic.com",
+                "role": "Creator"
+            }
+        ],
+        "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+        "homepage": "http://www.semantic-ui.com",
+        "keywords": [
+            "css",
+            "framework",
+            "semantic",
+            "ui"
+        ]
+    },
+    {
+        "name": "fortawesome/font-awesome",
+        "version": "v4.5.0",
+        "version_normalized": "4.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FortAwesome/Font-Awesome.git",
+            "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/fddd2c240452e6c8990c4ef75e0265b455aa7968",
+            "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968",
+            "shasum": ""
+        },
+        "require-dev": {
+            "jekyll": "1.0.2",
+            "lessc": "1.4.2"
+        },
+        "time": "2015-11-30 17:28:02",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "OFL-1.1",
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dave Gandy",
+                "email": "dave@fontawesome.io",
+                "homepage": "http://twitter.com/davegandy",
+                "role": "Developer"
+            }
+        ],
+        "description": "The iconic font and CSS framework",
+        "homepage": "http://fontawesome.io/",
+        "keywords": [
+            "FontAwesome",
+            "awesome",
+            "bootstrap",
+            "font",
+            "icon"
+        ]
+    }
+]

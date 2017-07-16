@@ -1,0 +1,6 @@
+{
+	"require": {
+		"semantic/ui": "2.1.8",
+		"FortAwesome/Font-Awesome": "*"
+	}
+}
