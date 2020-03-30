@@ -1,6 +1,6 @@
 <?php
 
-define('APP_PATH', 'http://localhost/exemplos-teste/mvc/agenda');
+define('APP_PATH', 'http://localhost/agenda');
 define('DS', str_replace('\\', '/', DIRECTORY_SEPARATOR));
 
 define('CSS', APP_PATH.DS.'public/css/');
