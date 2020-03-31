@@ -10,4 +10,5 @@ Configure the ```config/config.php``` file, change the APP_PATH variable accordi
 
 # Database
 Built with **MYSQL**
+
 The file .sql stay in path: ```doc/create-database.php```

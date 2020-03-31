@@ -13,7 +13,7 @@ abstract class ConnDB {
 	 */
 	private static function setConnection() {
 		$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
-		self::$conn = new PDO("mysql:host=localhost;dbname=db_greenbay", "root", "", $options);
+		self::$conn = new PDO("mysql:host=localhost;dbname=db_schedule_php", "root", "", $options);
 		self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 	}

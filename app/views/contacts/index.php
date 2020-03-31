@@ -3,24 +3,20 @@
 </div>
 
 <div class="container-form ">
-	<form autocomplete="off" name="form_contacts" action="" method="post" enctype="multipart/data-from" class="form-contacts ui form">
-		<input type="text"   name="code"       placeholder="Código" class="margin-input">
-		<input type="text"   name="name"       placeholder="Nome"   class="margin-input">
-		<input type="email"  name="email"      placeholder="E-mail" class="margin-input">
-		<div class="field container-input-file">
-		    <div class="ui action input">
-		        <input type="text" id="_attachmentName" readonly placeholder="Foto">
-		        <label for="attachmentName" class="ui icon button btn-file">
-		             <i class="plus basic icon"></i>
-		             <input type="file" id="attachmentName" name="photo" style="display: none">
-		        </label>
-		    </div>
-		</div>  
-		<input type="text"  name="phone"      placeholder="Telefone"  class="margin-input">
-		<input type="text"  name="cell_phone" placeholder="Celular">
+	<form autocomplete="off" name="form_contacts" id="form-contacts" action="" method="post" enctype="multipart/data-from" class="form-contacts ui form">
+		<input type="text"   name="code"      placeholder="Código"  class="margin-input">
+		<input type="text"   name="name"      placeholder="Name"    class="margin-input">
+		<input type="text"   name="address"   placeholder="Address" class="margin-input">
+		<input type="email"  name="email"     placeholder="E-mail"  class="margin-input">
+		<input type="text"   name="cellphone" placeholder="Cell Phone">
+		
 		<div class="buttons">
-			<button type="submit" id="btn_save" class="ui primary button"><i class="check icon"></i>Salvar</button>
+			<button type="submit" id="btn_save"  class="ui primary button"><i class="check icon"></i>Salvar</button>
 			<button type="reset"  id="btn_reset" class="ui button">Limpar</button>
+		</div>
+
+		<div id="alert-loader" class="ui disable dimmer">
+			<div class="ui indeterminate text loader">Wait</div>
 		</div>
 	</form>
 </div>
@@ -49,21 +45,25 @@
 		<table class="ui table">
 			<thead>
 				<tr>
-					<th>Código</th>
-					<th>Nome</th>
+					<th>Name</th>
+					<th>E-mail</th>
+					<th>Cell Phone</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>1</td>
 					<td>Gui</td>
+					<td>Gui</td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td>T1</td>
+					<td>T1</td>
 				</tr>
 				<tr>
 					<td>3</td>
+					<td>T3</td>
 					<td>T3</td>
 				</tr>
 			</tbody>

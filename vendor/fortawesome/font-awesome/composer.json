@@ -1,27 +1,47 @@
 {
   "name": "fortawesome/font-awesome",
-  "description": "The iconic font and CSS framework",
-  "keywords": ["font", "awesome", "fontawesome", "icon", "font", "bootstrap"],
-  "homepage": "http://fontawesome.io/",
+  "description": "The iconic font, CSS, and SVG framework",
+  "keywords": ["font", "awesome", "fontawesome", "icon", "svg", "font", "bootstrap"],
+  "homepage": "https://fontawesome.com",
   "authors": [
     {
+      "name": "Travis Chase",
+      "homepage": "http://twitter.com/supercodepoet"
+    },
+    {
       "name": "Dave Gandy",
-      "email": "dave@fontawesome.io",
-      "role": "Developer",
       "homepage": "http://twitter.com/davegandy"
+    },
+    {
+      "name": "Rob Madole",
+      "homepage": "http://twitter.com/robmadole"
+    },
+    {
+      "name": "Jory Raphael",
+      "homepage": "http://twitter.com/sensibleworld"
+    },
+    {
+      "name": "Geremia Taglialatela",
+      "homepage": "http://twitter.com/gtagliala"
+    },
+    {
+      "name": "Brian Talbot",
+      "homepage": "http://twitter.com/talbs"
+    },
+    {
+      "name": "Mike Wilkerson",
+      "homepage": "http://twitter.com/mw77"
     }
   ],
-  "extra": {
-    "branch-alias": {
-      "dev-master": "4.0.x-dev"
-    }
+  "support": {
+    "email": "hello@fontawesome.com",
+    "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
+    "source": "https://github.com/FortAwesome/Font-Awesome",
+    "docs": "http://fontawesome.com/how-to-use"
   },
   "license": [
-      "OFL-1.1",
-      "MIT"
-  ],
-  "require-dev": {
-      "jekyll": "1.0.2",
-      "lessc": "1.4.2"
-  }
+    "CC-BY-4.0",
+    "OFL-1.1",
+    "MIT"
+  ]
 }

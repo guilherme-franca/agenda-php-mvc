@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="<?php echo APP_PATH.DS; ?>vendor/semantic/ui/dist/semantic.css">
 		<link rel="stylesheet" href="<?php echo CSS; ?>style.css">
 		
-		<script src="<?php echo JS; ?>angular.js"></script>
 		<script src="<?php echo JS; ?>jquery.min.js"></script>
 		
 	</head>
