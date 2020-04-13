@@ -2,49 +2,162 @@
 
 namespace app\controllers;
 
-use app\models\Crud;
+use app\models\Contact;
 use app\core\Controller;
 use app\core\Page;
 
 /**
 * Contacts Controller
 */
- class ContactsControllers extends Controller
+class ContactsControllers extends Controller 
 {
-	function index()
+
+	public function index()
 	{
+		$data = [];
+		$data['tpl_contacts'] = $this->list_all();
+
+		Page::setData($data);
 		Page::setTitle('Contato');
-		Page::setView('contacts/index');
 		Page::setMenu('contacts');
+		Page::setView('contacts/index');
 		parent::layout('shared/layout');
+		
 	}
 
-	function showAll()
+	private function list_all()
 	{
-		$c   = new Crud();
-		$rs  = $c->select('num_matricula, nome', 'clientes', '', array());
+		$contacts = Contact::select();
+
 		$tpl = file_get_contents(APP_PATH.DS.'app/views/tampletes/contacts.tpl.html');
 		
-		$obj = new \ArrayObject($rs);
+		$obj = new \ArrayObject($contacts);
 		$it  = $obj->getIterator();
 
-		$data = array();
-		$data['tpl'] = '';
+		$_tpl = '';
+		$search  = array('#contact_id#', '#name#', '#email#', '#cellphone#');
 
-		$search  = array('#nome#', '#codigo#');
+		foreach( $it as $key => $val ):
+			$replace = array($val->contact_id, $val->name, $val->email, $val->cellphone);
+			$_tpl .= str_replace($search, $replace, $tpl);
+		endforeach;
 
-		foreach ($it as $key => $val)
-		{
-			$replace = array($val->nome, $val->num_matricula);
-			$data['tpl'] .= str_replace($search, $replace, $tpl);
+		return $_tpl;
+	}
+
+	public function edit()
+	{
+		$url = $this->segment(2);
+		$id = ( $url > 0 ) ? intval( $url ) : 0;
+
+		if (is_integer($id) && $id == 0):
+			echo json_encode(['success' => false, 'message' => 'ID is invalid']);
+			exit;
+		endif;
+
+		#return Contact::find($id)->json();
+		echo json_encode( Contact::findByID($id) );
+	}
+
+	public function save() 
+	{
+		if ( ! isset($_POST) ):
+			echo json_encode(['success' => false, 'message' => 'Error 500 - Action invalid']);
+			exit;
+		endif;
 			
-		}
+		extract($_POST);
+		
+		$code = intval($code);
 
+		if ($code != 0):
+			echo json_encode(['success' => false, 'message' => 'ID is invalid']);
+			exit;
+		endif;
 
-		Page::setTitle('Lista de Contatos');
-		Page::setView('contacts/showAll');
-		Page::setMenu('contacts');
-		Page::setData($data);
-		parent::layout('shared/layout');
+		$result = Contact::save(null, [
+			'name' => $name,
+			'address' => $address,
+			'cellphone' => $cellphone,
+			'email' => $email,
+			'create_at' => date("Y-m-d h:i:s"),
+		]);
+
+		if ($result):
+			echo json_encode(['success' => true, 'message' => 'Success to save', 'contact_id' => $result]);
+			exit;
+		else:
+			echo json_encode(['success' => false, 'message' => 'Failed to save', 'contact_id' => 0]);
+			exit;
+		endif;
+	}
+
+	/**
+	 * 
+	 * Primary key value must be the last element
+	 */
+	public function update()
+	{
+		if ( ! isset($_POST) ):
+			echo json_encode(['success' => false, 'message' => 'Error 500 - Action invalid']);
+			exit;
+		endif;
+
+		extract($_POST);
+
+		$code = $this->segment(2);
+		
+		$code = intval($code);
+
+		if ($code == 0):
+			echo json_encode(['success' => false, 'message' => 'ID is invalid']);
+			exit;
+		endif;
+
+		$lines_affected = Contact::update(
+			null,
+			[
+				'name' => $name,
+				'address' => $address,
+				'cellphone' => $cellphone,
+				'email' => $email
+			],
+			$code
+		);
+
+		if ($lines_affected):
+			echo json_encode(['success' => true, 'message' => 'Success to update', 'lines_affected' => $lines_affected]);
+			exit;
+		else:
+			echo json_encode(['success' => false, 'message' => 'Failed to update', 'contact_id' => 0]);
+			exit;
+		endif;
+	}
+
+	public function delete()
+	{
+		if ( ! isset($_POST) ):
+			echo json_encode(['success' => false, 'message' => 'Error 500 - Action invalid']);
+			exit;
+		endif;
+
+		extract($_POST);
+
+		$code = intval($code);
+
+		if ($code == 0):
+			echo json_encode(['success' => false, 'message' => 'ID is invalid']);
+			exit;
+		endif;
+
+		$lines_affected = Contact::delete(null, [$code]);
+
+		if ($lines_affected):
+			echo json_encode(['success' => true, 'message' => 'Success deleted', 'lines_affected' => $lines_affected]);
+			exit;
+		else:
+			echo json_encode(['success' => false, 'message' => 'Failed to deleted', 'contact_id' => 0]);
+			exit;
+		endif;
 	}
 }

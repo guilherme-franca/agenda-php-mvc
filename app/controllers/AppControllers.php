@@ -9,7 +9,7 @@ use app\core\Controller;
 class AppControllers extends Controller
 {
 	
-	function __construct()
+	public function __construct()
 	{
 		//parent::__construct();
 	}

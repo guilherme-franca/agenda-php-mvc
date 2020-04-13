@@ -9,6 +9,11 @@
 	display: block;
 }
 
+.row-selected {
+	background: blue !important;
+	color: #FFF;
+}
+
 
 /* HEADER PAGE
 ------------------------*/
@@ -23,25 +28,17 @@
 
 /* MAIN PAGE
 ------------------------*/
-.main-page { background-color: #DDD;display: block;margin: 20px 0; }
-.main-page > .div-h1 { display: block;margin: 0 auto;text-align: center; }
+.main-page { display: block;margin: 20px 0; }
+.main-page > .div-h1 { display: block;margin: 0 auto;text-align: center;margin-bottom: 20px; }
 .main-page > .div-h1 > h1 { text-align: center;display: inline-block;margin: 0 auto;padding: 10px;position:relative; }
 .main-page > .div-h1 > h1:before { content: ' ';background: #000;width: 40px;height: 1px;margin-left: -20px;position: absolute;left: 50%;bottom: 0; }
 
 /*--- contact page ---*/
-.container-form {
-	margin: 15px auto 0 auto;
-	width: 500px;
-}
 
-.container-form .form-contacts div.container-input-file,
-.container-form .form-contacts input.margin-input { margin-bottom: 5px;  }
+#form-contact-m div.container-input-file,
+#form-contact-m input.margin-input { margin-bottom: 5px;  }
 
-.container-form .form-contacts .buttons {
-	text-align: center;
-	display: block;
-	margin: 10px 0;
-}
+#form-contact-m .buttons { text-align: center; display: block; margin: 10px 0; }
 
 .ui.form .field { margin:0; }
 .ui.input .photo { background: #85B7D9; }

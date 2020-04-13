@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="<?php echo CSS; ?>style.css">
 		
 		<script src="<?php echo JS; ?>jquery.min.js"></script>
+		<script src="<?php echo JS; ?>jquery.quicksearch.min.js"></script>
 		
 	</head>
 	<body id="<?php echo Page::$menu; ?>" class="body-page">

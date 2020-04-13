@@ -31,6 +31,7 @@ class Page
 	
 	public static function view()
 	{
+		$data = self::$data;
 		require_once 'app/views/'. self::$view .'.php';
 	}
 }

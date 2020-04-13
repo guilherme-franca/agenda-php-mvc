@@ -1,26 +1,6 @@
 <div class="div-h1">
-	<h1>Lista de Contatos</h1>
+	<h1>Contact List</h1>
 </div>
-
-<div class="container-form ">
-	<form autocomplete="off" name="form_contacts" id="form-contacts" action="" method="post" enctype="multipart/data-from" class="form-contacts ui form">
-		<input type="text"   name="code"      placeholder="Código"  class="margin-input">
-		<input type="text"   name="name"      placeholder="Name"    class="margin-input">
-		<input type="text"   name="address"   placeholder="Address" class="margin-input">
-		<input type="email"  name="email"     placeholder="E-mail"  class="margin-input">
-		<input type="text"   name="cellphone" placeholder="Cell Phone">
-		
-		<div class="buttons">
-			<button type="submit" id="btn_save"  class="ui primary button"><i class="check icon"></i>Salvar</button>
-			<button type="reset"  id="btn_reset" class="ui button">Limpar</button>
-		</div>
-
-		<div id="alert-loader" class="ui disable dimmer">
-			<div class="ui indeterminate text loader">Wait</div>
-		</div>
-	</form>
-</div>
-
 
 
 <div class="ui grid">
@@ -38,11 +18,11 @@
 
 	    <div class="ui fluid category search block">
 		    <div class="ui icon input content-field">
-		        <input class="prompt field-search" type="text" placeholder="Search...">
+		        <input id="search" class="prompt field-search" type="text" placeholder="Search...">
 		        <i class="search icon"></i>
 		    </div>
 		</div>
-		<table class="ui table">
+		<table id="table-contacts" class="ui table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -51,24 +31,67 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Gui</td>
-					<td>Gui</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>T1</td>
-					<td>T1</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>T3</td>
-					<td>T3</td>
-				</tr>
+				<?php echo $data['tpl_contacts']; ?>
 			</tbody>
 		</table>
 
 	</div>
 </div>
 
+<!-- Viewer Contact Modal -->
+
+<div id="viewer-contact" class="ui small modal">
+  	<!-- <i class="close icon"></i> -->
+  	<div class="header">
+    	View Contact
+  	</div>
+  	<div class="image content">
+    	<div class="ui medium image">
+			<img src="<?php echo assests('img/avatar.png'); ?>">
+    	</div>
+		<div class="description">
+	  		<div id="message-m"></div>
+		   	<h3>Datails</h3>
+      		<p><b>Name:</b> <span id="name-m"></span> </p>
+      		<p><b>Address:</b> <span id="address-m"></span> </p>
+      		<p><b>Cell Phone:</b> <span id="cell-phone-m"></span> </p>
+      		<p><b>Email:</b> <span id="email-m"></span> </p>
+      		<p><b>Create at:</b> <span id="create-at-m"></span> </p>
+    	</div>
+  	</div>
+  	<div class="actions">
+    	<div class="ui positive ok button">Close</div>
+  	</div>
+</div>
+
+<!-- Show Form Contact Modal for New/Update register -->
+
+<div id="form-contact-m" class="ui small modal">
+	<!-- <i class="close icon"></i> -->
+	<div class="header">
+		New Contact
+	</div>
+	<div class="content">
+		
+		<form autocomplete="off" name="form_contacts" id="form-contacts" action="" method="post" enctype="multipart/data-from" class="form-contacts ui form">
+			<input type="hidden" id="code"      name="code"      placeholder="Código"  class="margin-input" value="0">
+			<input type="text"   id="name"      name="name"      placeholder="Name"    class="margin-input">
+			<input type="text"   id="address"   name="address"   placeholder="Address" class="margin-input">
+			<input type="email"  id="email"     name="email"     placeholder="E-mail"  class="margin-input">
+			<input type="text"   id="cellphone" name="cellphone" placeholder="Cell Phone">
+			
+			<span>&nbsp;</span> <div id="message"></div>
+			
+			<div class="buttons">
+				<button type="reset"  id="btn_reset" class="ui button">Reset</button>
+				<button type="submit" id="btn_save"  class="ui primary button"><i class="check icon"></i>Save</button>
+
+			</div>
+		</form>
+
+		<div id="alert-loader" class="ui disable dimmer">
+			<div class="ui indeterminate text loader">Wait</div>
+		</div>
+		
+	</div>
+</div>

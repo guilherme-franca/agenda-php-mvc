@@ -17,7 +17,8 @@ class HomeControllers extends Controller
 		parent::layout('shared/layout');
 	}
 
-	public function test() {
+	public function test()
+	{
 		echo 'HomeControllers.php :: test';
 		$crud = parent::model('Crud');
 		print_r( $crud->select('nome', 'clientes', '', array()) );

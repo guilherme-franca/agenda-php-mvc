@@ -7,5 +7,15 @@ define('CSS', APP_PATH.DS.'public/css/');
 define('IMG', APP_PATH.DS.'public/img/');
 define('JS', APP_PATH.DS.'public/js/');
 
+/**
+ * Genarete BASE URL | Link
+ * For images, files javascript and css
+ * 
+ */
+function assests($target)
+{
+    return APP_PATH . DS . 'public' . DS . $target;
+}
+
 include_once 'vendor/autoload.php';
 include_once 'autoload.php';

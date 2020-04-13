@@ -11,7 +11,7 @@ use app\core\Page;
 */
 class EventsControllers extends Controller
 {
-	function index()
+	public function index()
 	{
 		Page::setTitle('Evento');
 		Page::setView('events/index');
