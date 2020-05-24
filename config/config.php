@@ -12,9 +12,13 @@ define('JS', APP_PATH.DS.'public/js/');
  * For images, files javascript and css
  * 
  */
-function assests($target)
-{
+function assests($target) {
     return APP_PATH . DS . 'public' . DS . $target;
+}
+
+function config($name) {
+    $path = __DIR__ . DS . $name . DS . 'php';
+    return (file_exists($path)) ? include $path : null;
 }
 
 include_once 'vendor/autoload.php';

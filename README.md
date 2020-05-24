@@ -13,4 +13,4 @@ Configue the ```~/public/js/functions.js``` file, change the function UI.base_ur
 # Database
 Built with **MYSQL**
 
-The file .sql stay in path: ```doc/create-database.php```
+The file .sql stay in path: ```doc/create-database.sql```
