@@ -48,13 +48,13 @@ class Database
             self::$options   = config['mysql'][0]['options'];
             // foreach(self::$options as $key => $value):
             // endforeach;
+			// PDO("{mysql}:host=localhost;dbname=db_schedule_php", "root", "&!Lc7K$5q#", $options);
+			//self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-            try{
-                // PDO("{mysql}:host=localhost;dbname=db_schedule_php", "root", "&!Lc7K$5q#", $options);
-                $dns = self::$driver . ':host=' . self::$host . ';dbname=' . self::$dbname;
+            try {
+				$dns = self::$driver . ':host=' . self::$host . ';dbname=' . self::$dbname;
                 self::$conn = new PDO($dns, self::$username, self::$password, self::$options);
-                self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
                 return self;
             } catch(PDOException $e) {
                 die('Database Connection failed: ' . $e->getMessage());
@@ -80,6 +80,7 @@ class Database
     public function select($param, $data = array())
     {
         // $param = 'name, address' || '*'
+		return self;
     }
 
     public function save()

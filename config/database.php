@@ -17,6 +17,9 @@ return [
         'options'   => extension_loaded('pdo_mysql')
             ? array_filter([
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
+				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+				PDO::ATTR_CASE => PDO::CASE_NATURAL
             ]) 
             : [],
     ]
