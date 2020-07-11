@@ -17,8 +17,9 @@ function assests($target) {
 }
 
 function config($name) {
-    $path = __DIR__ . DS . $name . DS . 'php';
-    return (file_exists($path)) ? include $path : null;
+    $path = __DIR__ . DS . $name . '.php';
+    echo $path . "<br><br>";
+    return (file_exists($path)) ? include $path : [];
 }
 
 include_once 'vendor/autoload.php';

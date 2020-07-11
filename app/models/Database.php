@@ -2,85 +2,67 @@
 
 namespace app\models;
 
-class Database
+abstract class Database extends Connect
 {
-    static private $conn = NULL;
+    // Database
+    private $instance = NULL;
+	protected $table = '';
+    protected $primaryKey = 'id';
     private $rows = 0;
     // Pagination
     private $current = 1;
     private $perPage = 10;
     private $pageLink = '';
-    // Database
-	static protected $table = '';
-    static protected $primaryKey = '';
-    static private $error = false;
-	static private $query;
-    static private $driver = '';
-    static private $host = '';
-    static private $port = '';
-    static private $dbname = '';
-    static private $username = '';
-    static private $password = '';
-    static private $charset = '';
-    static private $collation = '';
-    static private $prefix = '';
-    static private $options = '';
+    // Statement
+    private $stmt = '';
+    private $_select = '';
+    private $_where = '';
+    private $_order = '';
+    //
+    private $error = false;
+	private $query;
+    
     
     public function __construct()
     {
-        self::$connection();
+        //$this->instance = Connect::getInstance();
     }
 
-    private static function connection()
+    public function table($name)
     {
-        if (self::conn == NULL):
-            // $options         = [];
-            $config          = config('database');
-            self::$driver    = config['mysql'][0]['driver'];
-            self::$host      = config['mysql'][0]['host'];
-            self::$port      = config['mysql'][0]['port'];
-            self::$dbname    = config['mysql'][0]['database'];
-            self::$username  = config['mysql'][0]['username'];
-            self::$password  = config['mysql'][0]['password'];
-            self::$charset   = config['mysql'][0]['charset'];
-            self::$collation = config['mysql'][0]['collation'];
-            self::$prefix    = config['mysql'][0]['prefix'];
-            self::$options   = config['mysql'][0]['options'];
-            // foreach(self::$options as $key => $value):
-            // endforeach;
-			// PDO("{mysql}:host=localhost;dbname=db_schedule_php", "root", "&!Lc7K$5q#", $options);
-			//self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+        $this->table = $name;
+        return $this;
+    }
 
-            try {
-				$dns = self::$driver . ':host=' . self::$host . ';dbname=' . self::$dbname;
-                self::$conn = new PDO($dns, self::$username, self::$password, self::$options);
-                return self;
-            } catch(PDOException $e) {
-                die('Database Connection failed: ' . $e->getMessage());
-            }
+    public function where($field, $operator = '=', $clause='')
+    {
+        $this->_where = empty($this->_where) ? 'WHERE' : '';
+        if (!in_array($operator, ['=', '!=', '>', '<', '<>', '>=', '<='])):
+            $clause = $operator;
+            $operator = '=';
         endif;
+        $this->_where .= " $field $operator $clause";
+        return $this;
     }
-
-    public static function table($name)
-    {
-        self::$table = $name;
-        return self;
-    }
-
-    public function where($field, $oprator = '=', $clause='')
-    {}
 
     public function query($query = '')
     {}
 
     public function get()
-    {}
+    {
+        // self::$db    = DB::getInstance();
+		// self::$query = self::$db->prepare($sql);
+        // self::$query->execute($exec);
+        // self::$query->fetchAll();
+
+        echo "SELECT {$this->_select} FROM {$this->table} {$this->_where}";
+    }
 
     public function select($param, $data = array())
     {
         // $param = 'name, address' || '*'
-		return self;
+        $this->_select = "{$param}";
+		return $this;
     }
 
     public function save()
@@ -88,6 +70,8 @@ class Database
 
     public function delete($id)
     {}
+
+    public function find() {}
 
     public function findById($id)
     {}

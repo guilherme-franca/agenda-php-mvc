@@ -24,7 +24,7 @@ abstract class ConnDB
 	 * Return the instance with to Database
 	 * @return $conn
 	 */
-	public static function getConn()
+	public static function getInstance()
 	{
 		self::setConnection();
 		return self::$conn;

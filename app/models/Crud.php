@@ -15,7 +15,7 @@ class Crud extends ConnDB implements ICrud
 
 	private static function prepExec($sql, $exec)
 	{
-		self::$db    = DB::getConn();
+		self::$db    = DB::getInstance();
 		self::$query = self::$db->prepare($sql);
 		self::$query->execute($exec);
 	}

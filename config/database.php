@@ -1,9 +1,9 @@
 <?php
 
-// PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION
-// PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ
-
 return [
+
+    'driverDefault' => 'mysql',
+
     'mysql' => [
         'driver'    => 'mysql',
         'database'  => 'db_schedule_php',
@@ -22,5 +22,6 @@ return [
 				PDO::ATTR_CASE => PDO::CASE_NATURAL
             ]) 
             : [],
-    ]
+    ],
+
 ];
