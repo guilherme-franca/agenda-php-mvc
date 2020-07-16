@@ -28,6 +28,8 @@ abstract class Database extends Connect
         //$this->instance = Connect::getInstance();
     }
 
+    public static function all() {}
+
     public function table($name)
     {
         $this->table = $name;
@@ -44,6 +46,9 @@ abstract class Database extends Connect
         $this->_where .= " $field $operator $clause";
         return $this;
     }
+
+    public function whereAnd() {}
+    public function whereOr() {}
 
     public function query($query = '')
     {}

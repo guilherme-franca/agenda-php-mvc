@@ -42,5 +42,7 @@
 		
 		<script src="<?php echo JS; ?>input-file.js"></script>
 		<script src="<?php echo JS; ?>functions.js"></script>
+		<script src="<?php echo JS; ?>contact.js"></script>
+		<script src="<?php echo JS; ?>event.js"></script>
 	</body>
 </html>
